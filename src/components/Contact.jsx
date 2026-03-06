@@ -10,7 +10,7 @@ const Contact = () => {
                 Contact
               </p>
               <h2 className="text-3xl font-semibold text-slate-100 sm:text-4xl">
-                Ready to build something unforgettable?
+                Ready to build something unforgettable with Design Sector?
               </h2>
               <p className="text-sm text-slate-300 sm:text-base">
                 Tell me about your project, timelines, and ambitions. I&apos;ll
