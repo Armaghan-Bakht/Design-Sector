@@ -1,0 +1,111 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #0b0a16;
+  --color-deep: #252159;
+  --color-accent: #c6d92d;
+
+  --font-display: "Clash Display", system-ui, sans-serif;
+  --font-body: "Clash Display", system-ui, sans-serif;
+
+  --shadow-glow: 0 0 30px rgba(198, 217, 45, 0.35);
+  --shadow-card: 0 20px 60px rgba(4, 6, 20, 0.45);
+
+  --animate-float-slow: float 8s ease-in-out infinite;
+  --animate-fade-up: fade-up 0.9s ease-out both;
+  --animate-fade-in: fade-in 0.8s ease-out both;
+  --animate-shimmer: shimmer 6s ease-in-out infinite;
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-14px);
+    }
+  }
+  @keyframes fade-up {
+    0% {
+      opacity: 0;
+      transform: translateY(18px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+  }
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @keyframes shimmer {
+    0% {
+      background-position: 0% 50%;
+    }
+    100% {
+      background-position: 100% 50%;
+    }
+  }
+
+  --background-image-glow: radial-gradient(
+    circle at top,
+    rgba(198, 217, 45, 0.18),
+    transparent 55%
+  );
+  --background-image-hero-lines: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.06) 0%,
+    transparent 100%
+  );
+}
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-ink text-slate-100 font-body antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-display;
+  }
+
+  img {
+    @apply block max-w-full;
+  }
+
+  ::selection {
+    background: #c6d92d;
+    color: #0b0a16;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply border border-white/10 bg-white/5 backdrop-blur;
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-accent via-white to-accent bg-clip-text text-transparent;
+  }
+
+  .shadow-accent {
+    box-shadow: 0 0 40px rgba(198, 217, 45, 0.22);
+  }
+}
