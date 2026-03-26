@@ -71,6 +71,8 @@
 
   html {
     scroll-behavior: smooth;
+    scrollbar-color: var(--color-accent) var(--color-ink);
+    scrollbar-width: thin;
   }
 
   body {
@@ -93,6 +95,25 @@
   ::selection {
     background: #c6d92d;
     color: #0b0a16;
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--color-ink);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-accent);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(198, 217, 45, 0.8);
   }
 }
 

@@ -15,18 +15,31 @@ const CategoryFilter = ({ categories, activeCategory, onChange, projects }) => {
   }, [categories, projects]);
 
   return (
-    <div className="flex flex-col gap-6">
-      <div className="flex items-center justify-between">
-        <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-slate-500">
-          Explore Categories
-        </h3>
-        <span className="text-[10px] font-bold uppercase tracking-widest text-accent/60">
-          {projects.length} Total Projects
-        </span>
+    <div className="flex flex-col gap-6 lg:gap-8">
+      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-white/5 pb-6">
+        <div className="flex flex-col gap-2">
+          <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-slate-300">
+            Explore Categories
+          </h3>
+          <p className="text-sm text-slate-500 max-w-md">
+            Filter through the portfolio to find specific types of work ranging
+            from branding to digital experiences.
+          </p>
+        </div>
+        <div className="flex items-center gap-3">
+          <div className="h-px w-8 bg-accent/30 hidden sm:block" />
+          <span className="flex items-center gap-2 rounded-full border border-accent/20 bg-accent/5 px-4 py-2 text-[10px] font-bold uppercase tracking-widest text-accent">
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75"></span>
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-accent"></span>
+            </span>
+            {projects.length} Total Projects
+          </span>
+        </div>
       </div>
 
-      <div className="no-scrollbar -mx-6 flex overflow-x-auto px-6 lg:mx-0 lg:px-0">
-        <div className="flex w-max items-center border-b border-white/5 lg:w-full">
+      <div className="no-scrollbar -mx-6 flex overflow-x-auto px-6 py-4 lg:-mx-4 lg:px-4">
+        <div className="flex w-max items-center gap-4 lg:w-full lg:flex-wrap">
           {categories.map((category) => {
             const isActive = activeCategory === category;
             return (
@@ -34,30 +47,22 @@ const CategoryFilter = ({ categories, activeCategory, onChange, projects }) => {
                 key={category}
                 type="button"
                 onClick={() => onChange(category)}
-                className={`group relative flex cursor-pointer items-center gap-2 px-6 py-4 text-sm font-bold uppercase tracking-widest transition-all duration-300 ${
+                className={`group flex cursor-pointer items-center gap-3 rounded-full border px-6 py-3.5 text-xs font-bold uppercase tracking-widest transition-all duration-300 ${
                   isActive
-                    ? "text-accent"
-                    : "text-slate-400 hover:text-slate-100"
+                    ? "border-accent bg-accent text-ink shadow-[0_8px_20px_rgba(198,217,45,0.3)]"
+                    : "border-white/10 bg-white/5 text-slate-400 backdrop-blur-sm hover:-translate-y-0.5 hover:border-white/20 hover:bg-white/10 hover:text-slate-100"
                 }`}
               >
                 <span>{category}</span>
                 <span
                   className={`flex h-5 min-w-[20px] items-center justify-center rounded-full px-1.5 text-[10px] font-bold transition-all duration-300 ${
                     isActive
-                      ? "bg-accent/10 text-accent"
-                      : "bg-white/5 text-slate-500 group-hover:bg-white/10 group-hover:text-slate-300"
+                      ? "bg-ink/20 text-ink"
+                      : "bg-white/10 text-slate-400 group-hover:bg-white/20 group-hover:text-slate-200"
                   }`}
                 >
                   {counts[category] || 0}
                 </span>
-
-                {/* Active Indicator Underline */}
-                {isActive && (
-                  <div
-                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-accent shadow-[0_0_12px_rgba(198,217,45,0.8)]"
-                    style={{ viewTransitionName: "active-underline" }}
-                  />
-                )}
               </button>
             );
           })}
@@ -176,14 +181,30 @@ const Projects = () => {
         </div>
 
         {(visibleCount < filteredProjects.length || visibleCount > 6) && (
-          <div className="flex flex-wrap justify-center gap-4">
+          <div className="flex flex-wrap justify-center gap-4 mt-8">
             {visibleCount < filteredProjects.length && (
               <button
                 type="button"
                 onClick={() => setVisibleCount((prev) => prev + 6)}
-                className="rounded-full border border-white/10 bg-white/5 px-6 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-slate-100 transition hover:border-accent hover:text-accent"
+                className="group relative flex items-center gap-3 overflow-hidden rounded-full border border-white/10 bg-white/5 px-8 py-4 text-xs font-bold uppercase tracking-[0.2em] text-slate-100 transition-all duration-300 hover:border-accent/40 hover:bg-white/10 hover:shadow-[0_0_20px_rgba(198,217,45,0.1)]"
               >
-                Load More Projects
+                <div className="absolute inset-0 bg-gradient-to-r from-accent/0 via-accent/10 to-accent/0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                <span className="relative z-10 transition-colors duration-300 group-hover:text-accent">
+                  Load More Projects
+                </span>
+                <svg
+                  className="relative z-10 h-4 w-4 transition-transform duration-300 group-hover:translate-y-0.5 group-hover:text-accent"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M19 14l-7 7m0 0l-7-7m7 7V3"
+                  />
+                </svg>
               </button>
             )}
 
@@ -191,9 +212,22 @@ const Projects = () => {
               <button
                 type="button"
                 onClick={() => setVisibleCount(6)}
-                className="rounded-full border border-white/10 bg-white/5 px-6 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-slate-100 transition hover:border-accent hover:text-accent"
+                className="group relative flex items-center gap-3 overflow-hidden rounded-full border border-white/10 bg-white/5 px-8 py-4 text-xs font-bold uppercase tracking-[0.2em] text-slate-400 transition-all duration-300 hover:border-white/20 hover:bg-white/10 hover:text-slate-100"
               >
-                View Less
+                <span className="relative z-10">View Less</span>
+                <svg
+                  className="relative z-10 h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M5 10l7-7m0 0l7 7m-7-7v18"
+                  />
+                </svg>
               </button>
             )}
           </div>

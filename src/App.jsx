@@ -1,16 +1,18 @@
-import Navbar from './components/Navbar'
-import Hero from './components/Hero'
-import About from './components/About'
-import Projects from './components/Projects'
-import FeaturedProjects from './components/FeaturedProjects'
-import Services from './components/Services'
-import Testimonials from './components/Testimonials'
-import Contact from './components/Contact'
-import Footer from './components/Footer'
+import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
+import About from "./components/About";
+import Projects from "./components/Projects";
+import FeaturedProjects from "./components/FeaturedProjects";
+import Services from "./components/Services";
+import Testimonials from "./components/Testimonials";
+import Contact from "./components/Contact";
+import Footer from "./components/Footer";
+import CursorGlow from "./components/CursorGlow";
 
 function App() {
   return (
-    <div className="min-h-screen bg-ink text-slate-100">
+    <div className="min-h-screen bg-ink text-slate-100 relative">
+      <CursorGlow />
       <Navbar />
       <main className="overflow-hidden">
         <Hero />
@@ -23,7 +25,7 @@ function App() {
       </main>
       <Footer />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
