@@ -3,12 +3,15 @@ import { featuredProjects } from '../data/featured'
 
 const FeaturedProjects = () => {
   return (
-    <section className="relative py-20 sm:py-28">
+    <section className="relative py-12 sm:py-20">
       <div className="mx-auto flex max-w-6xl flex-col gap-12 px-6">
         <SectionHeader
           eyebrow="Featured"
           title="Signature case studies with premium impact."
-          subtitle="These long-form engagements combine strategy, storytelling, and premium UI craft to deliver measurable brand growth."
+          subtitle="Struggling to get sales even with a great product? 
+Low engagement on your posts?
+Visitors coming… but not converting?
+You’re not alone and the problem is usually your visuals."
           align="center"
         />
 

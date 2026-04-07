@@ -118,7 +118,7 @@ const Projects = () => {
   };
 
   return (
-    <section id="projects" className="scroll-mt-24 py-20 sm:py-32">
+    <section id="projects" className="scroll-mt-24 py-12 sm:py-20">
       <div className="mx-auto flex max-w-6xl flex-col gap-12 px-6">
         <div className="flex flex-col gap-12">
           <SectionHeader

@@ -66,7 +66,7 @@ const contactLinks = [
 
 const Contact = () => {
   return (
-    <section id="contact" className="scroll-mt-24 py-20 sm:py-32">
+    <section id="contact" className="scroll-mt-24 py-12 sm:py-20">
       <div className="mx-auto max-w-[1280px] px-6">
         <div className="flex flex-col gap-12">
           {/* Section Header */}

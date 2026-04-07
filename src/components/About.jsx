@@ -11,7 +11,7 @@ const skills = [
 
 const About = () => {
   return (
-    <section id="about" className="relative scroll-mt-24 py-20 sm:py-28">
+    <section id="about" className="relative scroll-mt-24 py-12 sm:py-20">
       <div className="mx-auto grid max-w-6xl items-center gap-12 px-6 lg:grid-cols-2">
         <div className="relative">
           <div className="absolute -left-6 -top-6 h-28 w-28 rounded-2xl bg-accent/30 blur-2xl" />
@@ -28,8 +28,16 @@ const About = () => {
           <SectionHeader
             eyebrow="About"
             title="Designer rooted in strategy, obsessed with premium detail."
-            subtitle="I partner with founders and marketing teams to translate complex ideas into striking brand systems. My process blends research, typography, and interactive storytelling for digital-first experiences."
           />
+
+          <div className="space-y-4 text-sm font-light leading-relaxed tracking-wide text-slate-400">
+            <p>
+           At Design Sector, we believe design isn’t just about looking good it’s about getting results. </p>
+            <p>
+            From scroll-stopping social media creatives to high-converting Amazon listings, we focus on what actually matters: helping your brand stand out and sell more.</p>
+            <p>
+            With 6+ years of experience, we know what works and what doesn’t.</p>
+          </div>
 
           <div className="flex flex-wrap gap-3">
             {skills.map((skill) => (

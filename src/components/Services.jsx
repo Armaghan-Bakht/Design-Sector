@@ -3,13 +3,13 @@ import { services } from '../data/services'
 
 const Services = () => {
   return (
-    <section className="py-20 sm:py-28">
+    <section className="py-12 sm:py-20">
       <div className="mx-auto flex max-w-6xl flex-col gap-12 px-6">
         <SectionHeader
           eyebrow="Services"
-          title="Specialized design support for ambitious teams."
-          subtitle="Flexible engagements designed to deliver bold visuals, strong systems, and distinctive digital products."
+          title="Ready to grow your brand? Let’s get started today."
         />
+        <button className="w-fit rounded-full bg-accent px-6 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-ink shadow-accent transition hover:-translate-y-0.5 hover:shadow-glow">Start Your Project</button>
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {services.map((service) => (

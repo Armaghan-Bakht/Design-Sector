@@ -2,7 +2,7 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="relative min-h-screen scroll-mt-24 overflow-hidden pb-20 pt-32 sm:pt-36"
+      className="relative min-h-screen scroll-mt-24 overflow-hidden pb-12 pt-32 sm:pt-36"
     >
       <div className="absolute inset-0 bg-glow opacity-70" />
       <div className="absolute -top-32 left-10 h-72 w-72 rounded-full bg-accent/20 blur-3xl animate-float-slow" />
@@ -15,15 +15,13 @@ const Hero = () => {
             Creative Designer
           </p>
           <h1 className="bg-gradient-to-br from-white via-slate-200 to-slate-500 bg-clip-text text-3xl font-medium leading-tight tracking-tight text-transparent sm:text-4xl lg:text-5xl xl:text-6xl animate-fade-up">
-            Designing Experiences That Move Brands Forward.
+           We provide Design, Marketing & Development
           </h1>
           <p
             className="max-w-xl text-xs font-light leading-relaxed tracking-wide text-slate-400 sm:text-sm animate-fade-up"
             style={{ animationDelay: "0.1s" }}
           >
-            I craft bold brand systems, immersive digital products, and social
-            campaigns that feel alive. Every detail is designed to translate
-            strategy into unforgettable visual language.
+           Your product deserves attention. We create high-converting visuals, videos & digital experiences that turn visitors into buyers.
           </p>
           <div
             className="flex flex-wrap items-center gap-6 pt-4 animate-fade-up"
@@ -44,7 +42,7 @@ const Hero = () => {
             </a>
           </div>
         </div>
-
+<p className="text-xs font-light leading-relaxed tracking-wide text-slate-400 sm:text-lg animate-fade-up" style={{ animationDelay: "0.2s" }}>Trusted by growing brands to boost visibility, engagement & sales.</p>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {[
             { label: "Years Experience", value: "8+" },

@@ -15,7 +15,7 @@ const Testimonials = () => {
   const testimonial = testimonials[activeIndex]
 
   return (
-    <section className="py-20 sm:py-28">
+    <section className="py-12 sm:py-20">
       <div className="mx-auto flex max-w-6xl flex-col gap-12 px-6">
         <SectionHeader
           eyebrow="Testimonials"

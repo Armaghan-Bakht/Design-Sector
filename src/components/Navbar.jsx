@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import AgencyLogo from "../assets/Agency-Logo.png";
+import AgencyLogo from "../assets/Logo.png";
 
 const navLinks = [
   { label: "Home", href: "#home" },
@@ -27,31 +27,32 @@ const Navbar = () => {
     <header
       className={`fixed top-0 z-50 w-full transition-all duration-500 ${
         isScrolled
-          ? "bg-ink/60 py-3 backdrop-blur-xl border-b border-white/5"
-          : "bg-transparent py-6"
+          ? "bg-ink/80 py-2.5 backdrop-blur-xl border-b border-white/10 shadow-sm"
+          : "bg-transparent py-4"
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center gap-8 px-6 lg:px-10">
         {/* Logo */}
         <div className="flex-1">
-          <a href="#home" className="group inline-block">
+          <a href="#home" className="group flex items-center">
             <img
               src={AgencyLogo}
-              className="w-32 transition-transform duration-500 group-hover:scale-105 sm:w-40"
+              className="w-15 transition-transform duration-500 group-hover:scale-105 sm:w-19"
               alt="Agency Logo"
             />
           </a>
         </div>
 
         {/* Desktop Navigation - Centered */}
-        <nav className="hidden items-center gap-2 md:flex">
+        <nav className="hidden items-center gap-6 md:flex">
           {navLinks.map((link) => (
             <a
               key={link.label}
               href={link.href}
-              className="px-4 py-2 text-[10px] font-bold uppercase tracking-[0.3em] text-slate-300 transition-all duration-300 hover:text-accent sm:text-xs"
+              className="group relative py-1 text-[10px] font-semibold uppercase tracking-widest text-slate-300 transition-colors duration-300 hover:text-white sm:text-[11px]"
             >
               {link.label}
+              <span className="absolute bottom-0 left-0 h-[1px] w-0 bg-accent transition-all duration-300 group-hover:w-full"></span>
             </a>
           ))}
         </nav>
@@ -60,50 +61,51 @@ const Navbar = () => {
         <div className="hidden flex-1 items-center justify-end md:flex">
           <a
             href="#contact"
-            className="group relative flex items-center gap-2 overflow-hidden border border-accent/20 px-7 py-2.5 text-xs font-bold uppercase tracking-[0.2em] text-accent transition-all duration-300 hover:bg-accent hover:text-ink"
+            className="group relative flex items-center justify-center overflow-hidden rounded-md border border-white/20 bg-white/5 px-6 py-2 text-[10px] font-semibold uppercase tracking-widest text-white backdrop-blur-md transition-all duration-500 hover:border-accent hover:bg-accent hover:text-ink sm:text-[11px]"
           >
-            <span className="relative z-10 transition-colors duration-300 group-hover:text-ink">
+            <span className="relative z-10 transition-colors duration-300">
               Let&apos;s Work
             </span>
-            <div className="absolute inset-0 -translate-x-full bg-accent transition-transform duration-500 group-hover:translate-x-0"></div>
+            {/* Subtle sweep effect on hover */}
+            <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-700 ease-in-out group-hover:translate-x-full"></div>
           </a>
         </div>
 
         {/* Mobile Toggle */}
         <button
           type="button"
-          className="group relative z-[60] flex h-10 w-10 flex-col items-center justify-center gap-1.5 md:hidden"
+          className="group relative z-[60] flex h-10 w-10 flex-col items-center justify-center gap-[5px] md:hidden"
           onClick={() => setIsOpen((prev) => !prev)}
           aria-label="Toggle navigation menu"
         >
           <span
-            className={`h-[2px] w-6 bg-slate-100 transition-all duration-500 ${isOpen ? "translate-y-[8px] rotate-45 bg-accent" : ""}`}
+            className={`h-[2px] w-6 bg-slate-200 transition-all duration-500 ${isOpen ? "translate-y-[7px] rotate-45 bg-accent" : ""}`}
           />
           <span
-            className={`h-[2px] w-4 bg-slate-100 transition-all duration-500 ${isOpen ? "opacity-0" : ""}`}
+            className={`h-[2px] w-6 bg-slate-200 transition-all duration-500 ${isOpen ? "opacity-0" : ""}`}
           />
           <span
-            className={`h-[2px] w-6 bg-slate-100 transition-all duration-500 ${isOpen ? "-translate-y-[8px] -rotate-45 bg-accent" : ""}`}
+            className={`h-[2px] w-6 bg-slate-200 transition-all duration-500 ${isOpen ? "-translate-y-[7px] -rotate-45 bg-accent" : ""}`}
           />
         </button>
       </div>
 
       {/* Full-screen Mobile Menu */}
       <div
-        className={`fixed inset-0 z-50 flex flex-col items-center justify-center bg-ink transition-all duration-700 ease-in-out md:hidden ${
-          isOpen ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
+        className={`fixed inset-0 z-50 flex flex-col items-center justify-center bg-ink/95 backdrop-blur-2xl transition-all duration-700 ease-in-out md:hidden ${
+          isOpen ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0 pointer-events-none"
         }`}
       >
-        <div className="flex flex-col items-center gap-8 text-center">
+        <div className="flex flex-col items-center gap-10 text-center">
           {navLinks.map((link, index) => (
             <a
               key={link.label}
               href={link.href}
               onClick={handleLinkClick}
-              className={`text-3xl font-bold uppercase tracking-[0.3em] text-slate-100 transition-all duration-500 hover:text-accent ${
+              className={`text-2xl font-medium uppercase tracking-[0.2em] text-slate-300 transition-all duration-500 hover:text-white ${
                 isOpen
                   ? "translate-y-0 opacity-100"
-                  : "translate-y-10 opacity-0"
+                  : "translate-y-8 opacity-0"
               }`}
               style={{ transitionDelay: `${index * 100}ms` }}
             >
@@ -114,17 +116,17 @@ const Navbar = () => {
           <a
             href="#contact"
             onClick={handleLinkClick}
-            className={`mt-10 rounded-full border border-accent/40 px-10 py-4 text-sm font-bold uppercase tracking-[0.3em] text-accent transition-all duration-500 hover:bg-accent hover:text-ink ${
-              isOpen ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+            className={`mt-4 rounded-md border border-white/20 bg-white/5 px-10 py-3.5 text-xs font-semibold uppercase tracking-widest text-white backdrop-blur-md transition-all duration-500 hover:border-accent hover:bg-accent hover:text-ink ${
+              isOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
             }`}
-            style={{ transitionDelay: "500ms" }}
+            style={{ transitionDelay: `${navLinks.length * 100 + 100}ms` }}
           >
             Start a Project
           </a>
         </div>
 
         {/* Minimalist Background Pattern for Mobile Menu */}
-        <div className="absolute bottom-10 left-0 right-0 text-center text-[10px] uppercase tracking-[0.5em] text-white/10">
+        <div className="absolute bottom-10 left-0 right-0 text-center text-[10px] uppercase tracking-widest text-white/30">
           Design Sector &copy; 2024
         </div>
       </div>
